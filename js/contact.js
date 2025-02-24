@@ -69,12 +69,15 @@ class TerminalForm {
         const contactSection = document.querySelector('#contact');
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
-                if (entry.isIntersecting && !this.initialized) {
+                if (entry.isIntersecting && !this.initialized && entry.intersectionRatio > 0.5) {
                     this.init();
                     this.initialized = true;
                 }
             });
-        }, { threshold: 0.1 });
+        }, { 
+            threshold: 0.5,
+            rootMargin: '-100px 0px'
+        });
 
         observer.observe(contactSection);
     }
@@ -186,7 +189,12 @@ class TerminalForm {
         this.terminal.appendChild(inputGroup);
         
         const input = inputGroup.querySelector('.terminal__input');
-        input.focus();
+        
+        // Remove automatic focus
+        // Only focus if the user has interacted with the terminal
+        if (this.userHasInteracted) {
+            input.focus();
+        }
         
         // Add input effects
         input.addEventListener('keypress', (e) => {
@@ -317,8 +325,8 @@ class TerminalForm {
 
     setupEventListeners() {
         // Add any additional event listeners here
-        const contactSection = document.querySelector('#contact');
-        contactSection.addEventListener('click', () => {
+        const formContainer = document.querySelector('.contact__form-container');
+        formContainer.addEventListener('click', () => {
             const currentInput = document.querySelector('.terminal__input:not([disabled])');
             if (currentInput) {
                 currentInput.focus();
