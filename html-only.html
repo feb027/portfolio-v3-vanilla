@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Personal Portfolio Website">
+    <title>FebnawanFR - Portfolio</title>
+    <!-- CSS Files -->
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="header" id="header">
+        <nav class="nav container">
+            <a href="#" class="nav__logo">
+                <span class="nav__logo-bracket">&lt;</span>
+                <span class="nav__logo-text">FFR</span>
+                <span class="nav__logo-bracket">/&gt;</span>
+            </a>
+
+            <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list">
+                    <li class="nav__item">
+                        <a href="#home" class="nav__link active">
+                            <span class="nav__link-box"></span>
+                            <span class="nav__link-text">Home</span>
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#about" class="nav__link">
+                            <span class="nav__link-box"></span>
+                            <span class="nav__link-text">About</span>
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#skills" class="nav__link">
+                            <span class="nav__link-box"></span>
+                            <span class="nav__link-text">Skills</span>
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#why-hire" class="nav__link">
+                            <span class="nav__link-box"></span>
+                            <span class="nav__link-text">Why Me</span>
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#projects" class="nav__link">
+                            <span class="nav__link-box"></span>
+                            <span class="nav__link-text">Projects</span>
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#testimonials" class="nav__link">
+                            <span class="nav__link-box"></span>
+                            <span class="nav__link-text">Testimonials</span>
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#contact" class="nav__link">
+                            <span class="nav__link-box"></span>
+                            <span class="nav__link-text">Contact</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="nav__toggle" id="nav-toggle">
+                <div class="nav__toggle-inner">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+        <div class="scroll-progress" id="scroll-progress"></div>
+        <div class="nav__overlay" id="nav-overlay"></div>
+    </header>
+
+    <main class="main">
+        <!-- Hero Section -->
+        <section class="hero section" id="home">
+            <div class="hero__container container">
+                <div class="hero__content">
+                    <div class="hero__left">
+                        <div class="hero__text">
+                            <span class="hero__greeting">Hi, I'm</span>
+                            <h1 class="hero__title">Febnawan Fatur Rochman</h1>
+                            <div class="hero__subtitle-wrapper">
+                                <span class="hero__subtitle-prefix">Role</span>
+                                <span class="hero__subtitle-separator">|</span>
+                                <span class="hero__subtitle" id="typed-text"></span>
+                            </div>
+                            <p class="hero__description">
+                                Passionate about creating beautiful and functional web experiences
+                            </p>
+                            <div class="hero__buttons">
+                                <a href="#contact" class="button">Contact Me</a>
+                                <a href="#projects" class="button button--ghost">View Projects</a>
+                            </div>
+                            <div class="hero__social">
+                                <a href="https://github.com/feb027" class="hero__social-link">
+                                    <i class="ri-github-line"></i>
+                                </a>
+                                <a href="https://linkedin.com/in/febnawan-fr" class="hero__social-link">
+                                    <i class="ri-linkedin-line"></i>
+                                </a>
+                                <a href="https://instagram.com/feb07_" class="hero__social-link">
+                                    <i class="ri-instagram-line"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hero__right">
+                        <div class="terminal">
+                            <div class="terminal__header">
+                                <div class="terminal__buttons">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                </div>
+                                <div class="terminal__title">portfolio.exe</div>
+                            </div>
+                            <div class="terminal__body">
+                                <div class="terminal__line">
+                                    <span class="terminal__prompt">$</span>
+                                    <span class="terminal__text" id="terminal-text"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section class="about section" id="about">
+            <div class="section__title-wrapper">
+                <h2 class="section__title">About Me</h2>
+                <div class="section__title-decoration"></div>
+            </div>
+            <div class="about__container container">
+                <div class="about__content">
+                    <div class="about__left">
+                        <div class="about__corner about__corner--tl"></div>
+                        <div class="about__corner about__corner--tr"></div>
+                        <div class="about__corner about__corner--bl"></div>
+                        <div class="about__corner about__corner--br"></div>
+                        <div class="about__tags about__tags-top"></div>
+                        <div class="about__image-wrapper">
+                            <img src="assets/profile.jpg" alt="Profile Image" class="about__image">
+                        </div>
+                        <div class="about__tags about__tags-bottom"></div>
+                    </div>
+                    <div class="about__right">
+                        <div class="about__tabs">
+                            <div class="about__tabs-header">
+                                <button class="about__tab-btn active" data-tab="identity">
+                                    <i class="ri-user-line"></i>
+                                    <span>Identity</span>
+                                </button>
+                                <button class="about__tab-btn" data-tab="interests">
+                                    <i class="ri-heart-line"></i>
+                                    <span>Interests</span>
+                                </button>
+                                <button class="about__tab-btn" data-tab="expertise">
+                                    <i class="ri-code-line"></i>
+                                    <span>Expertise</span>
+                                </button>
+                                <button class="about__tab-btn" data-tab="games">
+                                    <i class="ri-gamepad-line"></i>
+                                    <span>Games</span>
+                                </button>
+                            </div>
+                            
+                            <div class="about__tabs-content">
+                                <div class="about__tab active" data-tab="identity">
+                                    <div class="about__tab-body">
+                                        <div class="about__info-item">
+                                            <span class="about__info-label">Name</span>
+                                            <span class="about__info-value">Febnawan Fatur Rochman</span>
+                                        </div>
+                                        <div class="about__info-item">
+                                            <span class="about__info-label">Role</span>
+                                            <span class="about__info-value">Full Stack Developer</span>
+                                        </div>
+                                        <div class="about__info-item">
+                                            <span class="about__info-label">Location</span>
+                                            <span class="about__info-value">Tasikmalaya, Indonesia</span>
+                                        </div>
+                                        <div class="about__info-item">
+                                            <span class="about__info-label">Education</span>
+                                            <span class="about__info-value">Universitas Siliwangi</span>
+                                        </div>
+                                        <div class="about__info-item">
+                                            <span class="about__info-label">E-mail</span>
+                                            <span class="about__info-value">febnawanrochman2@gmail.com</span>
+                                        </div>
+                                        <div class="about__info-item">
+                                            <span class="about__info-label">Status</span>
+                                            <span class="about__info-value highlight">Available for hire</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="about__tab" data-tab="interests">
+                                    <div class="about__tab-body">
+                                        <div class="about__interests-grid">
+                                            <div class="about__interest-item">
+                                                <div class="about__interest-icon">
+                                                    <i class="ri-code-line"></i>
+                                                </div>
+                                                <div class="about__interest-content">
+                                                    <h4>Web Development</h4>
+                                                    <p>Building modern web apps with cutting-edge tech.</p>
+                                                </div>
+                                            </div>
+                                            <div class="about__interest-item">
+                                                <div class="about__interest-icon">
+                                                    <i class="ri-brain-line"></i>
+                                                </div>
+                                                <div class="about__interest-content">
+                                                    <h4>Artificial Intelligence</h4>
+                                                    <p>Exploring ML and neural networks.</p>
+                                                </div>
+                                            </div>
+                                            <div class="about__interest-item">
+                                                <div class="about__interest-icon">
+                                                    <i class="ri-cpu-line"></i>
+                                                </div>
+                                                <div class="about__interest-content">
+                                                    <h4>Computer Hardware</h4>
+                                                    <p>Building and optimizing PC systems.</p>
+                                                </div>
+                                            </div>
+                                            <div class="about__interest-item">
+                                                <div class="about__interest-icon">
+                                                    <i class="ri-gamepad-line"></i>
+                                                </div>
+                                                <div class="about__interest-content">
+                                                    <h4>Gaming</h4>
+                                                    <p>Passionate about gaming and game dev.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="about__tab" data-tab="expertise">
+                                    <div class="about__tab-body">
+                                        <div class="about__expertise-grid">
+                                            <div class="about__expertise-category">
+                                                <div class="about__expertise-header">
+                                                    <i class="ri-layout-4-line"></i>
+                                                    <h4>Frontend</h4>
+                                                </div>
+                                                <div class="about__expertise-items">
+                                                    <div class="about__expertise-item">
+                                                        <span class="expertise-name">React</span>
+                                                        <div class="expertise-level">
+                                                            <div class="expertise-bar" style="--level: 90%"></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="about__expertise-item">
+                                                        <span class="expertise-name">Next.js</span>
+                                                        <div class="expertise-level">
+                                                            <div class="expertise-bar" style="--level: 85%"></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="about__expertise-item">
+                                                        <span class="expertise-name">TypeScript</span>
+                                                        <div class="expertise-level">
+                                                            <div class="expertise-bar" style="--level: 80%"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="about__expertise-category">
+                                                <div class="about__expertise-header">
+                                                    <i class="ri-server-line"></i>
+                                                    <h4>Backend</h4>
+                                                </div>
+                                                <div class="about__expertise-items">
+                                                    <div class="about__expertise-item">
+                                                        <span class="expertise-name">Node.js</span>
+                                                        <div class="expertise-level">
+                                                            <div class="expertise-bar" style="--level: 85%"></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="about__expertise-item">
+                                                        <span class="expertise-name">Python</span>
+                                                        <div class="expertise-level">
+                                                            <div class="expertise-bar" style="--level: 75%"></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="about__expertise-item">
+                                                        <span class="expertise-name">Express</span>
+                                                        <div class="expertise-level">
+                                                            <div class="expertise-bar" style="--level: 80%"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="about__expertise-category">
+                                                <div class="about__expertise-header">
+                                                    <i class="ri-database-2-line"></i>
+                                                    <h4>Database</h4>
+                                                </div>
+                                                <div class="about__expertise-items">
+                                                    <div class="about__expertise-item">
+                                                        <span class="expertise-name">MongoDB</span>
+                                                        <div class="expertise-level">
+                                                            <div class="expertise-bar" style="--level: 85%"></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="about__expertise-item">
+                                                        <span class="expertise-name">PostgreSQL</span>
+                                                        <div class="expertise-level">
+                                                            <div class="expertise-bar" style="--level: 80%"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="about__expertise-category">
+                                                <div class="about__expertise-header">
+                                                    <i class="ri-tools-line"></i>
+                                                    <h4>Tools</h4>
+                                                </div>
+                                                <div class="about__expertise-items">
+                                                    <div class="about__expertise-item">
+                                                        <span class="expertise-name">Git</span>
+                                                        <div class="expertise-level">
+                                                            <div class="expertise-bar" style="--level: 90%"></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="about__expertise-item">
+                                                        <span class="expertise-name">Docker</span>
+                                                        <div class="expertise-level">
+                                                            <div class="expertise-bar" style="--level: 75%"></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="about__expertise-item">
+                                                        <span class="expertise-name">VSCode</span>
+                                                        <div class="expertise-level">
+                                                            <div class="expertise-bar" style="--level: 95%"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="about__tab" data-tab="games">
+                                    <div class="about__tab-body">
+                                        <div class="about__games-header">
+                                            <div class="about__games-title">
+                                                <i class="ri-gamepad-line"></i>
+                                                <h3>Favorite Games</h3>
+                                            </div>
+                                            <a href="https://steamcommunity.com/id/feb07_" target="_blank" class="about__steam-link">
+                                                <i class="ri-steam-line"></i>
+                                                <span>Steam Profile</span>
+                                                <i class="ri-arrow-right-up-line"></i>
+                                            </a>
+                                        </div>
+                                        <div class="about__games-grid">
+                                            <div class="about__game-item">
+                                                <div class="game-image-wrapper">
+                                                    <img src="assets/valorant.jpg" alt="Valorant">
+                                                    <div class="game-overlay">
+                                                        <span class="game-hours">800+ hours</span>
+                                                        <div class="game-info">
+                                                            <h4>Valorant</h4>
+                                                            <p>Tactical FPS</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="game-stats">
+                                                    <div class="game-stat">
+                                                        <i class="ri-sword-line"></i>
+                                                        <span>Main: Raze</span>
+                                                    </div>
+                                                    <div class="game-stat">
+                                                        <i class="ri-trophy-line"></i>
+                                                        <span>Diamond</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="about__game-item">
+                                                <div class="game-image-wrapper">
+                                                    <img src="assets/kcd2.jpg" alt="Kingdom Come Deliverance 2">
+                                                    <div class="game-overlay">
+                                                        <span class="game-hours">150+ hours</span>
+                                                        <div class="game-info">
+                                                            <h4>Kingdom Come Deliverance 2</h4>
+                                                            <p>Action RPG</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="game-stats">
+                                                    <div class="game-stat">
+                                                        <i class="ri-sword-line"></i>
+                                                        <span>Warrior Build</span>
+                                                    </div>
+                                                    <div class="game-stat">
+                                                        <i class="ri-map-pin-line"></i>
+                                                        <span>100% Completion</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="about__game-item">
+                                                <div class="game-image-wrapper">
+                                                    <img src="assets/osu.jpg" alt="osu!">
+                                                    <div class="game-overlay">
+                                                        <span class="game-hours">400+ hours</span>
+                                                        <div class="game-info">
+                                                            <h4>osu!</h4>
+                                                            <p>Rhythm Game</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="game-stats">
+                                                    <div class="game-stat">
+                                                        <i class="ri-record-circle-line"></i>
+                                                        <span>Mouse</span>
+                                                    </div>
+                                                    <div class="game-stat">
+                                                        <i class="ri-pulse-line"></i>
+                                                        <span>#120K</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="about__game-item">
+                                                <div class="game-image-wrapper">
+                                                    <img src="assets/cs2.jpg" alt="CS2">
+                                                    <div class="game-overlay">
+                                                        <span class="game-hours">2600+ hours</span>
+                                                        <div class="game-info">
+                                                            <h4>CS2</h4>
+                                                            <p>Tactical FPS</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="game-stats">
+                                                    <div class="game-stat">
+                                                        <i class="ri-sword-line"></i>
+                                                        <span>Rifler</span>
+                                                    </div>
+                                                    <div class="game-stat">
+                                                        <i class="ri-trophy-line"></i>
+                                                        <span>18k+</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section class="skills section" id="skills">
+            <div class="section__title-wrapper">
+                <h2 class="section__title">Skills</h2>
+                <div class="section__title-decoration"></div>
+            </div>
+            <div class="skills__container container">
+                <div class="skills__content">
+                    <div class="skills__command-palette">
+                        <div class="command-palette__categories">
+                            <button class="category-btn active" data-category="frontend">
+                                <i class="ri-layout-4-line"></i>
+                                <span>Frontend</span>
+                            </button>
+                            <button class="category-btn" data-category="backend">
+                                <i class="ri-server-line"></i>
+                                <span>Backend</span>
+                            </button>
+                            <button class="category-btn" data-category="devtools">
+                                <i class="ri-tools-line"></i>
+                                <span>DevTools</span>
+                            </button>
+                            <button class="category-btn" data-category="soft">
+                                <i class="ri-mind-map"></i>
+                                <span>Soft Skills</span>
+                            </button>
+                            <button class="category-btn" data-category="gaming">
+                                <i class="ri-gamepad-line"></i>
+                                <span>Gaming</span>
+                            </button>
+                        </div>
+                        <div class="command-palette__results">
+                            <div id="skills-container">
+                                <!-- Skills will be dynamically inserted here -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Why Hire Me Section -->
+        <section class="why-hire section" id="why-hire">
+            <div class="section__title-wrapper">
+                <h2 class="section__title">Why Hire Me</h2>
+                <div class="section__title-decoration"></div>
+            </div>
+            <div class="why-hire__container container">
+                <div class="why-hire__content">
+                    <div class="why-hire__scene">
+                        <canvas id="why-hire-canvas"></canvas>
+                        <div class="why-hire__overlay"></div>
+                        <div class="why-hire__interface">
+                            <div class="interface__prompt">
+                                <span class="prompt__text">Click to interact</span>
+                                <i class="ri-cursor-line"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section class="projects section" id="projects">
+            <div class="section__title-wrapper">
+                <h2 class="section__title">Projects</h2>
+                <div class="section__title-decoration"></div>
+            </div>
+            <div class="projects__container container">
+                <div class="projects__content">
+                    <!-- Project Cards Container -->
+                    <div class="projects__grid"></div>
+                    
+                    <!-- Pagination -->
+                    <div class="projects__pagination">
+                        <button class="pagination__btn" data-action="prev">
+                            <i class="ri-arrow-left-line"></i>
+                        </button>
+                        <div class="pagination__numbers"></div>
+                        <button class="pagination__btn" data-action="next">
+                            <i class="ri-arrow-right-line"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Project Modal -->
+        <div class="project-modal" id="projectModal">
+            <div class="modal__content">
+                <button class="modal__close">
+                    <i class="ri-close-line"></i>
+                </button>
+                <div class="modal__header">
+                    <div class="modal__thumbnail">
+                        <img src="" alt="Project thumbnail" class="modal__image">
+                    </div>
+                    <div class="modal__title-group">
+                        <h3 class="modal__title"></h3>
+                        <div class="modal__links">
+                            <a href="#" class="modal__link demo-link" target="_blank">
+                                <i class="ri-external-link-line"></i>
+                                <span>Live Demo</span>
+                            </a>
+                            <a href="#" class="modal__link source-link" target="_blank">
+                                <i class="ri-github-line"></i>
+                                <span>Source Code</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal__body">
+                    <div class="modal__description"></div>
+                    <div class="modal__tech-stack">
+                        <h4 class="tech-stack__title">Technologies Used</h4>
+                        <div class="tech-stack__list"></div>
+                    </div>
+                    <div class="modal__features">
+                        <h4 class="features__title">Key Features</h4>
+                        <ul class="features__list"></ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Testimonials Section -->
+        <section class="testimonials section" id="testimonials">
+            <div class="section__title-wrapper">
+                <h2 class="section__title">Client Testimonials</h2>
+                <div class="section__title-decoration"></div>
+            </div>
+
+            <div class="testimonials__container">
+                <div class="testimonials__track">
+                    <!-- First set of testimonials -->
+                    <div class="testimonials__group">
+                        <!-- Testimonial cards will be dynamically inserted here -->
+                    </div>
+                    <!-- Duplicate set for infinite scroll -->
+                    <div class="testimonials__group">
+                        <!-- Duplicate testimonial cards will be dynamically inserted here -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="contact section" id="contact">
+            <div class="container">
+                <div class="section__title-wrapper">
+                    <h2 class="section__title">Contact</h2>
+                    <div class="section__title-decoration"></div>
+                </div>
+
+                <div class="contact__content">
+                    <!-- Contact Info -->
+                    <div class="contact__info">
+                        <div class="info__container">
+                            <div class="info__item">
+                                <i class="ri-mail-line"></i>
+                                <div class="info__data">
+                                    <span class="info__title">Email</span>
+                                    <a href="mailto:febnawanrochman2@gmail.com" class="info__link">febnawanrochman2@gmail.com</a>
+                                </div>
+                            </div>
+
+                            <div class="info__item">
+                                <i class="ri-phone-line"></i>
+                                <div class="info__data">
+                                    <span class="info__title">Phone</span>
+                                    <a href="tel:+6285314493791" class="info__link">+62 853-1449-3791</a>
+                                </div>
+                            </div>
+
+                            <div class="info__item">
+                                <i class="ri-github-line"></i>
+                                <div class="info__data">
+                                    <span class="info__title">GitHub</span>
+                                    <a href="https://github.com/feb027" target="_blank" class="info__link">@feb027</a>
+                                </div>
+                            </div>
+
+                            <div class="info__item">
+                                <i class="ri-linkedin-line"></i>
+                                <div class="info__data">
+                                    <span class="info__title">LinkedIn</span>
+                                    <a href="https://linkedin.com/in/febnawan-fr" target="_blank" class="info__link">@febnawan-fr</a>
+                                </div>
+                            </div>
+
+                            <div class="info__item">
+                                <i class="ri-map-pin-line"></i>
+                                <div class="info__data">
+                                    <span class="info__title">Location</span>
+                                    <span class="info__text">Tasikmalaya, Indonesia</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Contact Form Terminal -->
+                    <div class="contact__form-container">
+                        <div class="terminal__header">
+                            <div class="terminal__buttons">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                            <span class="terminal__title">contact_form.sh</span>
+                        </div>
+                        <div class="terminal__body">
+                            <div class="terminal__content">
+                                <div class="terminal__lines"></div>
+                                <form id="contactForm" class="terminal__form">
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer__container container">
+                <!-- Background Elements -->
+                <div class="footer__bg">
+                    <div class="footer__bg-circle"></div>
+                    <div class="footer__bg-grid"></div>
+                </div>
+
+                <div class="footer__content">
+                    <!-- Brand Column -->
+                    <div class="footer__brand">
+                        <a href="#" class="footer__logo">
+                            <span class="logo__bracket">{</span>
+                            <span class="logo__text">feb07</span>
+                            <span class="logo__bracket">}</span>
+                        </a>
+                        <p class="footer__description">Crafting digital experiences with clean code and creative design. Let's build something amazing together.</p>
+                        <div class="footer__social">
+                            <a href="https://github.com/feb027" target="_blank" class="social__link" data-tooltip="GitHub">
+                                <i class="ri-github-line"></i>
+                            </a>
+                            <a href="https://linkedin.com/in/febnawan-fr" target="_blank" class="social__link" data-tooltip="LinkedIn">
+                                <i class="ri-linkedin-line"></i>
+                            </a>
+                            <a href="https://instagram.com/feb07_" target="_blank" class="social__link" data-tooltip="Instagram">
+                                <i class="ri-instagram-line"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Quick Links -->
+                    <div class="footer__group">
+                        <h3 class="footer__title">
+                            <i class="ri-links-line"></i>
+                            Quick Links
+                        </h3>
+                        <ul class="footer__list">
+                            <li><a href="#home" class="footer__link"><i class="ri-arrow-right-s-line"></i>Home</a></li>
+                            <li><a href="#about" class="footer__link"><i class="ri-arrow-right-s-line"></i>About</a></li>
+                            <li><a href="#skills" class="footer__link"><i class="ri-arrow-right-s-line"></i>Skills</a></li>
+                            <li><a href="#projects" class="footer__link"><i class="ri-arrow-right-s-line"></i>Projects</a></li>
+                            <li><a href="#contact" class="footer__link"><i class="ri-arrow-right-s-line"></i>Contact</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Resources -->
+                    <div class="footer__group">
+                        <h3 class="footer__title">
+                            <i class="ri-book-2-line"></i>
+                            Resources
+                        </h3>
+                        <ul class="footer__list">
+                            <li><a href="#" class="footer__link"><i class="ri-shield-keyhole-line"></i>Privacy Policy</a></li>
+                            <li><a href="#" class="footer__link"><i class="ri-file-text-line"></i>Terms of Use</a></li>
+                            <li><a href="#" class="footer__link"><i class="ri-medal-line"></i>Certificates</a></li>
+                            <li><a href="#" class="footer__link"><i class="ri-questionnaire-line"></i>FAQ</a></li>
+                            <li><a href="#" class="footer__link"><i class="ri-book-open-line"></i>Blog</a></li>
+                            <li><a href="#" class="footer__link"><i class="ri-article-line"></i>Articles</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Contact Info -->
+                    <div class="footer__group">
+                        <h3 class="footer__title">
+                            <i class="ri-contacts-book-line"></i>
+                            Contact Info
+                        </h3>
+                        <ul class="footer__list">
+                            <li class="footer__info">
+                                <i class="ri-map-pin-line"></i>
+                                <div class="info__content">
+                                    <span class="info__label">Location:</span>
+                                    <span>Tasikmalaya, Indonesia</span>
+                                </div>
+                            </li>
+                            <li class="footer__info">
+                                <i class="ri-mail-line"></i>
+                                <div class="info__content">
+                                    <span class="info__label">Email:</span>
+                                    <a href="mailto:febnawanrochman2@gmail.com">febnawanrochman2@gmail.com</a>
+                                </div>
+                            </li>
+                            <li class="footer__info">
+                                <i class="ri-phone-line"></i>
+                                <div class="info__content">
+                                    <span class="info__label">Phone:</span>
+                                    <a href="tel:+6285314493791">+62 853-1449-3791</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Divider with Glow -->
+                <div class="footer__divider">
+                    <div class="divider__line"></div>
+                    <div class="divider__glow"></div>
+                </div>
+
+                <!-- Bottom -->
+                <div class="footer__bottom">
+                    <div class="footer__copy">
+                        <p>
+                            <i class="ri-copyright-line"></i> 
+                            <span id="copyright-year"></span> 
+                            <span class="copy__highlight">feb07</span>. 
+                            All rights reserved.
+                        </p>
+                    </div>
+                    <div class="footer__awards">
+                        <span class="award__item" data-tooltip="Clean and maintainable code">
+                            <i class="ri-code-box-line"></i>
+                            Clean Code
+                        </span>
+                        <span class="award__item" data-tooltip="Following industry best practices">
+                            <i class="ri-shield-check-line"></i>
+                            Best Practices
+                        </span>
+                        <span class="award__item" data-tooltip="Optimized for speed and efficiency">
+                            <i class="ri-timer-flash-line"></i>
+                            Performance
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </main>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    
+
+    <div class="lightbox" id="imageLightbox">
+        <div class="lightbox__content">
+            <button class="lightbox__close" id="lightboxClose">
+                <i class="ri-close-line"></i>
+            </button>
+            <img src="" alt="Profile Image" class="lightbox__image">
+        </div>
+    </div>
+</body>
+</html> 
