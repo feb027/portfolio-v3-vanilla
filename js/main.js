@@ -175,14 +175,17 @@ sr.reveal('.hero__buttons', {delay: 700});
 sr.reveal('.hero__social', {delay: 800, origin: 'left'});
 
 /*=============== TYPED ANIMATION ===============*/
-const typed = new Typed('#typed-text', {
-    strings: ['Full Stack Developer', 'Gaming Addict', 'Kupu-Kupu'],
-    typeSpeed: 50,
-    backSpeed: 50,
-    backDelay: 2000,
-    loop: true,
-    showCursor: false
-});
+const typedElement = document.getElementById('typed-text');
+if (typedElement) {
+    const typed = new Typed('#typed-text', {
+        strings: ['Full Stack Developer', 'Gaming Addict', 'Kupu-Kupu'],
+        typeSpeed: 50,
+        backSpeed: 50,
+        backDelay: 2000,
+        loop: true,
+        showCursor: false
+    });
+}
 
 /*=============== TERMINAL ANIMATION ===============*/
 let terminalText = document.querySelector('.terminal__text');
@@ -229,6 +232,8 @@ function typeCommand() {
     } else {
         setTimeout(() => {
             const terminalBody = document.querySelector('.terminal__body');
+            if (!terminalBody) return;
+            
             terminalBody.innerHTML = `
                 <div class="terminal__line">
                     <span class="terminal__prompt">$</span>
@@ -244,23 +249,25 @@ function typeCommand() {
 }
 
 // Add terminal hover effect
-terminal.addEventListener('mousemove', (e) => {
-    const rect = terminal.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-    
-    const centerX = rect.width / 2;
-    const centerY = rect.height / 2;
-    
-    const angleX = (y - centerY) / 30;
-    const angleY = (centerX - x) / 30;
-    
-    terminal.style.transform = `perspective(1000px) rotateX(${angleX}deg) rotateY(${angleY}deg)`;
-});
+if (terminal) {
+    terminal.addEventListener('mousemove', (e) => {
+        const rect = terminal.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+        
+        const angleX = (y - centerY) / 30;
+        const angleY = (centerX - x) / 30;
+        
+        terminal.style.transform = `perspective(1000px) rotateX(${angleX}deg) rotateY(${angleY}deg)`;
+    });
 
-terminal.addEventListener('mouseleave', () => {
-    terminal.style.transform = 'perspective(1000px) rotateY(-5deg)';
-});
+    terminal.addEventListener('mouseleave', () => {
+        terminal.style.transform = 'perspective(1000px) rotateY(-5deg)';
+    });
+}
 
 // Start the animation when the page loads
 document.addEventListener('DOMContentLoaded', () => {

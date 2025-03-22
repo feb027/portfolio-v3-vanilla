@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Frequently Asked Questions - FebnawanFR Portfolio">
+    <title>FAQ - FebnawanFR</title>
+    <!-- CSS Files -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/faq.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="header" id="header">
+        <nav class="nav container">
+            <a href="index.html" class="nav__logo">
+                <span class="nav__logo-bracket">&lt;</span>
+                <span class="nav__logo-text">FFR</span>
+                <span class="nav__logo-bracket">/&gt;</span>
+            </a>
+
+            <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list">
+                    <li class="nav__item">
+                        <a href="index.html#home" class="nav__link">
+                            <span class="nav__link-box"></span>
+                            <span class="nav__link-text">Home</span>
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="index.html#about" class="nav__link">
+                            <span class="nav__link-box"></span>
+                            <span class="nav__link-text">About</span>
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="index.html#skills" class="nav__link">
+                            <span class="nav__link-box"></span>
+                            <span class="nav__link-text">Skills</span>
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="index.html#projects" class="nav__link">
+                            <span class="nav__link-box"></span>
+                            <span class="nav__link-text">Projects</span>
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="index.html#contact" class="nav__link">
+                            <span class="nav__link-box"></span>
+                            <span class="nav__link-text">Contact</span>
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="faq.html" class="nav__link active">
+                            <span class="nav__link-box"></span>
+                            <span class="nav__link-text">FAQ</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="nav__toggle" id="nav-toggle">
+                <div class="nav__toggle-inner">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+        <div class="scroll-progress" id="scroll-progress"></div>
+        <div class="nav__overlay" id="nav-overlay"></div>
+    </header>
+
+    <main class="main">
+        <!-- FAQ Section -->
+        <section class="faq section" id="faq">
+            <div class="section__title-wrapper">
+                <h2 class="section__title">FAQ</h2>
+                <div class="section__title-decoration"></div>
+            </div>
+            
+            <div class="faq__container container">
+
+                <!-- Search -->
+                <div class="faq__search-container">
+                    <div class="faq__search-wrapper">
+                        <i class="ri-search-line"></i>
+                        <input type="text" id="faqSearch" class="faq__search-input" placeholder="Search for questions...">
+                        <button class="faq__search-clear" id="clearSearch">
+                            <i class="ri-close-line"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Categories -->
+                <div class="faq__categories">
+                    <button class="category-btn active" data-category="all">
+                        <i class="ri-apps-line"></i>
+                        <span>All</span>
+                    </button>
+                    <button class="category-btn" data-category="general">
+                        <i class="ri-question-line"></i>
+                        <span>General</span>
+                    </button>
+                    <button class="category-btn" data-category="services">
+                        <i class="ri-service-line"></i>
+                        <span>Services</span>
+                    </button>
+                    <button class="category-btn" data-category="technical">
+                        <i class="ri-code-line"></i>
+                        <span>Technical</span>
+                    </button>
+                    <button class="category-btn" data-category="pricing">
+                        <i class="ri-money-dollar-circle-line"></i>
+                        <span>Pricing</span>
+                    </button>
+                </div>
+
+                <!-- FAQ Accordion -->
+                <div class="faq__accordion">
+                    <!-- FAQ items will be dynamically inserted here -->
+                </div>
+
+                <!-- FAQ Not Found -->
+                <div class="faq__not-found" id="faqNotFound">
+                    <div class="not-found__icon">
+                        <i class="ri-question-mark"></i>
+                    </div>
+                    <h3>No questions found</h3>
+                    <p>Try different keywords or browse through the categories</p>
+                </div>
+
+                <!-- Contact CTA -->
+                <div class="faq__cta">
+                    <div class="cta__content">
+                        <div class="cta__icon">
+                            <i class="ri-question-answer-line"></i>
+                        </div>
+                        <div class="cta__text">
+                            <h3>Still have questions?</h3>
+                            <p>If you couldn't find the answer to your question, feel free to contact me directly.</p>
+                        </div>
+                        <a href="index.html#contact" class="button">Contact Me</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer__container container">
+            <!-- Background Elements -->
+            <div class="footer__bg">
+                <div class="footer__bg-circle"></div>
+                <div class="footer__bg-grid"></div>
+            </div>
+
+            <div class="footer__content">
+                <!-- Brand Column -->
+                <div class="footer__brand">
+                    <a href="#" class="footer__logo">
+                        <span class="logo__bracket">{</span>
+                        <span class="logo__text">feb07</span>
+                        <span class="logo__bracket">}</span>
+                    </a>
+                    <p class="footer__description">Crafting digital experiences with clean code and creative design. Let's build something amazing together.</p>
+                    <div class="footer__social">
+                        <a href="https://github.com/feb027" target="_blank" class="social__link" data-tooltip="GitHub">
+                            <i class="ri-github-line"></i>
+                        </a>
+                        <a href="https://linkedin.com/in/febnawan-fr" target="_blank" class="social__link" data-tooltip="LinkedIn">
+                            <i class="ri-linkedin-line"></i>
+                        </a>
+                        <a href="https://instagram.com/feb07_" target="_blank" class="social__link" data-tooltip="Instagram">
+                            <i class="ri-instagram-line"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="footer__group">
+                    <h3 class="footer__title">
+                        <i class="ri-links-line"></i>
+                        Quick Links
+                    </h3>
+                    <ul class="footer__list">
+                        <li><a href="index.html#home" class="footer__link"><i class="ri-arrow-right-s-line"></i>Home</a></li>
+                        <li><a href="index.html#about" class="footer__link"><i class="ri-arrow-right-s-line"></i>About</a></li>
+                        <li><a href="index.html#skills" class="footer__link"><i class="ri-arrow-right-s-line"></i>Skills</a></li>
+                        <li><a href="index.html#projects" class="footer__link"><i class="ri-arrow-right-s-line"></i>Projects</a></li>
+                        <li><a href="index.html#contact" class="footer__link"><i class="ri-arrow-right-s-line"></i>Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Resources -->
+                <div class="footer__group">
+                    <h3 class="footer__title">
+                        <i class="ri-book-2-line"></i>
+                        Resources
+                    </h3>
+                    <ul class="footer__list">
+                        <li><a href="privacy-policy.html" class="footer__link"><i class="ri-shield-keyhole-line"></i>Privacy Policy</a></li>
+                        <li><a href="terms-of-use.html" class="footer__link"><i class="ri-file-text-line"></i>Terms of Use</a></li>
+                        <li><a href="certificates.html" class="footer__link"><i class="ri-medal-line"></i>Certificates</a></li>
+                        <li><a href="faq.html" class="footer__link"><i class="ri-questionnaire-line"></i>FAQ</a></li>
+                        <li><a href="#" class="footer__link"><i class="ri-book-open-line"></i>Blog</a></li>
+                        <li><a href="#" class="footer__link"><i class="ri-article-line"></i>Articles</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Info -->
+                <div class="footer__group">
+                    <h3 class="footer__title">
+                        <i class="ri-contacts-book-line"></i>
+                        Contact Info
+                    </h3>
+                    <ul class="footer__list">
+                        <li class="footer__info">
+                            <i class="ri-map-pin-line"></i>
+                            <div class="info__content">
+                                <span class="info__label">Location:</span>
+                                <span>Tasikmalaya, Indonesia</span>
+                            </div>
+                        </li>
+                        <li class="footer__info">
+                            <i class="ri-mail-line"></i>
+                            <div class="info__content">
+                                <span class="info__label">Email:</span>
+                                <a href="mailto:febnawanrochman2@gmail.com">febnawanrochman2@gmail.com</a>
+                            </div>
+                        </li>
+                        <li class="footer__info">
+                            <i class="ri-phone-line"></i>
+                            <div class="info__content">
+                                <span class="info__label">Phone:</span>
+                                <a href="tel:+6285314493791">+62 853-1449-3791</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Divider with Glow -->
+            <div class="footer__divider">
+                <div class="divider__line"></div>
+                <div class="divider__glow"></div>
+            </div>
+
+            <!-- Bottom -->
+            <div class="footer__bottom">
+                <div class="footer__copy">
+                    <p>
+                        <i class="ri-copyright-line"></i> 
+                        <span id="copyright-year"></span> 
+                        <span class="copy__highlight">feb07</span>. 
+                        All rights reserved.
+                    </p>
+                </div>
+                <div class="footer__awards">
+                    <span class="award__item" data-tooltip="Clean and maintainable code">
+                        <i class="ri-code-box-line"></i>
+                        Clean Code
+                    </span>
+                    <span class="award__item" data-tooltip="Following industry best practices">
+                        <i class="ri-shield-check-line"></i>
+                        Best Practices
+                    </span>
+                    <span class="award__item" data-tooltip="Optimized for speed and efficiency">
+                        <i class="ri-timer-flash-line"></i>
+                        Performance
+                    </span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    
+    <!-- Main JavaScript -->
+    <script src="js/main.js" type="module"></script>
+    <script src="js/faq.js" type="module"></script>
+    <script type="module" src="js/footer.js"></script>
+</body>
+</html> 

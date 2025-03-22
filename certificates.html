@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Certificates - FebnawanFR Portfolio">
+    <title>Certificates - FebnawanFR</title>
+    <!-- CSS Files -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/certificates.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="header" id="header">
+        <nav class="nav container">
+            <a href="index.html" class="nav__logo">
+                <span class="nav__logo-bracket">&lt;</span>
+                <span class="nav__logo-text">FFR</span>
+                <span class="nav__logo-bracket">/&gt;</span>
+            </a>
+
+            <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list">
+                    <li class="nav__item">
+                        <a href="index.html#home" class="nav__link">
+                            <span class="nav__link-box"></span>
+                            <span class="nav__link-text">Home</span>
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="index.html#about" class="nav__link">
+                            <span class="nav__link-box"></span>
+                            <span class="nav__link-text">About</span>
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="index.html#skills" class="nav__link">
+                            <span class="nav__link-box"></span>
+                            <span class="nav__link-text">Skills</span>
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="index.html#why-hire" class="nav__link">
+                            <span class="nav__link-box"></span>
+                            <span class="nav__link-text">Why Me</span>
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="index.html#projects" class="nav__link">
+                            <span class="nav__link-box"></span>
+                            <span class="nav__link-text">Projects</span>
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="index.html#testimonials" class="nav__link">
+                            <span class="nav__link-box"></span>
+                            <span class="nav__link-text">Testimonials</span>
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="index.html#contact" class="nav__link">
+                            <span class="nav__link-box"></span>
+                            <span class="nav__link-text">Contact</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="nav__toggle" id="nav-toggle">
+                <div class="nav__toggle-inner">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+        <div class="scroll-progress" id="scroll-progress"></div>
+        <div class="nav__overlay" id="nav-overlay"></div>
+    </header>
+
+    <main class="main">
+        <!-- Certificates Section -->
+        <section class="certificates section" id="certificates">
+            <div class="section__title-wrapper">
+                <h2 class="section__title">Certificates</h2>
+                <div class="section__title-decoration"></div>
+            </div>
+            
+            <div class="certificates__container container">
+                <div class="certificates__header">
+                    <div class="certificates__illustration">
+                        <div class="certificate-graphic">
+                            <div class="certificate-graphic__paper">
+                                <div class="certificate-graphic__seal"></div>
+                                <div class="certificate-graphic__badge">
+                                    <i class="ri-medal-line"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="certificates__intro">
+                        <h3>Professional Achievements</h3>
+                        <p>These certificates represent my commitment to continuous learning and professional development in various areas of technology and software development.</p>
+                        <div class="certificates__stats">
+                            <div class="stat-item">
+                                <div class="stat-number" id="total-certificates">0</div>
+                                <div class="stat-label">Certificates</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number" id="total-categories">0</div>
+                                <div class="stat-label">Categories</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number" id="hours-learned">0</div>
+                                <div class="stat-label">Hours</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="certificates__filter">
+                    <div class="filter__search">
+                        <div class="search-input-wrapper">
+                            <i class="ri-search-line"></i>
+                            <input type="text" id="certificate-search" placeholder="Search certificates..." class="search-input">
+                            <button class="search-clear" id="search-clear">
+                                <i class="ri-close-line"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="filter__categories">
+                        <button class="category-btn active" data-category="all">
+                            <i class="ri-apps-line"></i>
+                            <span>All</span>
+                        </button>
+                        <!-- Categories will be added here dynamically via JS -->
+                    </div>
+                </div>
+                
+                <div class="certificates__grid" id="certificates-grid">
+                    <!-- Certificates will be added here dynamically via JS -->
+                    <div class="certificate-loading">
+                        <div class="loading-spinner"></div>
+                        <p>Loading certificates...</p>
+                    </div>
+                </div>
+                
+                <!-- Certificate Modal -->
+                <div class="certificate-modal" id="certificate-modal">
+                    <div class="certificate-modal__content">
+                        <div class="certificate-modal__header">
+                            <h3 id="modal-title">Certificate Title</h3>
+                            <button class="modal-close" id="modal-close">
+                                <i class="ri-close-line"></i>
+                            </button>
+                        </div>
+                        <div class="certificate-modal__body">
+                            <div class="certificate-modal__image-container">
+                                <img src="" alt="Certificate" id="modal-image" class="certificate-modal__image">
+                                <div class="certificate-modal__overlay">
+                                    <a href="#" target="_blank" id="modal-view-link" class="modal-btn">
+                                        <i class="ri-external-link-line"></i>
+                                        View Full Size
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="certificate-modal__details">
+                                <div class="certificate-modal__info">
+                                    <div class="info-item">
+                                        <span class="info-label">Issued By</span>
+                                        <span class="info-value" id="modal-issuer"></span>
+                                    </div>
+                                    <div class="info-item">
+                                        <span class="info-label">Date</span>
+                                        <span class="info-value" id="modal-date"></span>
+                                    </div>
+                                    <div class="info-item">
+                                        <span class="info-label">Credential ID</span>
+                                        <span class="info-value" id="modal-credential"></span>
+                                    </div>
+                                    <div class="info-item">
+                                        <span class="info-label">Category</span>
+                                        <span class="info-value" id="modal-category"></span>
+                                    </div>
+                                </div>
+                                <div class="certificate-modal__description" id="modal-description">
+                                    <!-- Description will be added here dynamically -->
+                                </div>
+                                <div class="certificate-modal__skills">
+                                    <h4>Skills</h4>
+                                    <div class="skills-list" id="modal-skills">
+                                        <!-- Skills will be added here dynamically -->
+                                    </div>
+                                </div>
+                                <div class="certificate-modal__actions">
+                                    <a href="#" target="_blank" id="modal-verify-link" class="modal-btn primary">
+                                        <i class="ri-shield-check-line"></i>
+                                        Verify Certificate
+                                    </a>
+                                    <a href="#" target="_blank" id="modal-issuer-link" class="modal-btn secondary">
+                                        <i class="ri-links-line"></i>
+                                        Visit Issuer
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer__container container">
+            <!-- Background Elements -->
+            <div class="footer__bg">
+                <div class="footer__bg-circle"></div>
+                <div class="footer__bg-grid"></div>
+            </div>
+
+            <div class="footer__content">
+                <!-- Brand Column -->
+                <div class="footer__brand">
+                    <a href="#" class="footer__logo">
+                        <span class="logo__bracket">{</span>
+                        <span class="logo__text">feb07</span>
+                        <span class="logo__bracket">}</span>
+                    </a>
+                    <p class="footer__description">Crafting digital experiences with clean code and creative design. Let's build something amazing together.</p>
+                    <div class="footer__social">
+                        <a href="https://github.com/feb027" target="_blank" class="social__link" data-tooltip="GitHub">
+                            <i class="ri-github-line"></i>
+                        </a>
+                        <a href="https://linkedin.com/in/febnawan-fr" target="_blank" class="social__link" data-tooltip="LinkedIn">
+                            <i class="ri-linkedin-line"></i>
+                        </a>
+                        <a href="https://instagram.com/feb07_" target="_blank" class="social__link" data-tooltip="Instagram">
+                            <i class="ri-instagram-line"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="footer__group">
+                    <h3 class="footer__title">
+                        <i class="ri-links-line"></i>
+                        Quick Links
+                    </h3>
+                    <ul class="footer__list">
+                        <li><a href="index.html#home" class="footer__link"><i class="ri-arrow-right-s-line"></i>Home</a></li>
+                        <li><a href="index.html#about" class="footer__link"><i class="ri-arrow-right-s-line"></i>About</a></li>
+                        <li><a href="index.html#skills" class="footer__link"><i class="ri-arrow-right-s-line"></i>Skills</a></li>
+                        <li><a href="index.html#projects" class="footer__link"><i class="ri-arrow-right-s-line"></i>Projects</a></li>
+                        <li><a href="index.html#contact" class="footer__link"><i class="ri-arrow-right-s-line"></i>Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Resources -->
+                <div class="footer__group">
+                    <h3 class="footer__title">
+                        <i class="ri-book-2-line"></i>
+                        Resources
+                    </h3>
+                    <ul class="footer__list">
+                        <li><a href="privacy-policy.html" class="footer__link"><i class="ri-shield-keyhole-line"></i>Privacy Policy</a></li>
+                        <li><a href="terms-of-use.html" class="footer__link"><i class="ri-file-text-line"></i>Terms of Use</a></li>
+                        <li><a href="certificates.html" class="footer__link"><i class="ri-medal-line"></i>Certificates</a></li>
+                        <li><a href="#" class="footer__link"><i class="ri-questionnaire-line"></i>FAQ</a></li>
+                        <li><a href="#" class="footer__link"><i class="ri-book-open-line"></i>Blog</a></li>
+                        <li><a href="#" class="footer__link"><i class="ri-article-line"></i>Articles</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Info -->
+                <div class="footer__group">
+                    <h3 class="footer__title">
+                        <i class="ri-contacts-book-line"></i>
+                        Contact Info
+                    </h3>
+                    <ul class="footer__list">
+                        <li class="footer__info">
+                            <i class="ri-map-pin-line"></i>
+                            <div class="info__content">
+                                <span class="info__label">Location:</span>
+                                <span>Tasikmalaya, Indonesia</span>
+                            </div>
+                        </li>
+                        <li class="footer__info">
+                            <i class="ri-mail-line"></i>
+                            <div class="info__content">
+                                <span class="info__label">Email:</span>
+                                <a href="mailto:febnawanrochman2@gmail.com">febnawanrochman2@gmail.com</a>
+                            </div>
+                        </li>
+                        <li class="footer__info">
+                            <i class="ri-phone-line"></i>
+                            <div class="info__content">
+                                <span class="info__label">Phone:</span>
+                                <a href="tel:+6285314493791">+62 853-1449-3791</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Divider with Glow -->
+            <div class="footer__divider">
+                <div class="divider__line"></div>
+                <div class="divider__glow"></div>
+            </div>
+
+            <!-- Bottom -->
+            <div class="footer__bottom">
+                <div class="footer__copy">
+                    <p>
+                        <i class="ri-copyright-line"></i> 
+                        <span id="copyright-year"></span> 
+                        <span class="copy__highlight">feb07</span>. 
+                        All rights reserved.
+                    </p>
+                </div>
+                <div class="footer__awards">
+                    <span class="award__item" data-tooltip="Clean and maintainable code">
+                        <i class="ri-code-box-line"></i>
+                        Clean Code
+                    </span>
+                    <span class="award__item" data-tooltip="Following industry best practices">
+                        <i class="ri-shield-check-line"></i>
+                        Best Practices
+                    </span>
+                    <span class="award__item" data-tooltip="Optimized for speed and efficiency">
+                        <i class="ri-timer-flash-line"></i>
+                        Performance
+                    </span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    
+    <!-- Main JavaScript -->
+    <script src="js/main.js" type="module"></script>
+    <script src="js/footer.js" type="module"></script>
+    <script src="js/certificatesData.js" type="module"></script>
+    <script src="js/certificates.js" type="module"></script>
+</body>
+</html> 
