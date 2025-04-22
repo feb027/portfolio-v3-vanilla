@@ -20,26 +20,61 @@ class TerminalForm {
             {
                 question: 'Please enter your name:',
                 field: 'name',
-                validate: (value) => {
-                    // Sanitize and validate name
+                validate: (value, inputElement) => {
+                    // Native JS Sanitization & Validation
                     const sanitized = this.sanitizeInput(value);
                     if (sanitized !== value) return 'Name contains invalid characters';
-                    if (sanitized.length < 2) return 'Name must be at least 2 characters long';
-                    if (sanitized.length > 50) return 'Name must be less than 50 characters';
                     if (!/^[a-zA-Z\s\-']+$/.test(sanitized)) return 'Name can only contain letters, spaces, hyphens, and apostrophes';
+                    
+                    // --- jQuery Validation --- 
+                    const $input = $(inputElement); // Use jQuery on the input element
+                    const trimmedValue = $input.val().trim();
+
+                    // Wajib diisi (Required)
+                    if (trimmedValue.length === 0) {
+                        return 'Name is required';
+                    }
+                    // Minimal length (can be combined with required)
+                    if (trimmedValue.length < 2) { 
+                        return 'Name must be at least 2 characters long';
+                    }
+                    // Maksimal karakter (Max length)
+                    if ($input.val().length > 50) { 
+                        return 'Name must be less than 50 characters';
+                    }
+                    // --- End jQuery Validation ---
+
                     return true;
                 }
             },
             {
                 question: 'Please enter your email:',
                 field: 'email',
-                validate: (value) => {
-                    // Sanitize and validate email
+                validate: (value, inputElement) => {
+                    // Native JS Sanitization
                     const sanitized = this.sanitizeInput(value);
                     if (sanitized !== value) return 'Email contains invalid characters';
-                    if (sanitized.length > 100) return 'Email must be less than 100 characters';
-                    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(sanitized)) return 'Please enter a valid email address';
-                    // Additional email validation
+
+                    // --- jQuery Validation --- 
+                    const $input = $(inputElement); // Use jQuery on the input element
+                    const trimmedValue = $input.val().trim();
+                    
+                    // Wajib diisi (Required)
+                    if (trimmedValue.length === 0) {
+                        return 'Email is required';
+                    }
+                    // Maksimal karakter (Max length)
+                    if ($input.val().length > 100) { 
+                        return 'Email must be less than 100 characters';
+                    }
+                    // Simple jQuery email format check (supplements the more robust regex)
+                    if (trimmedValue.indexOf('@') === -1 || trimmedValue.indexOf('.') === -1) {
+                        // This is a basic check, the regex below is more thorough
+                    }
+                    // --- End jQuery Validation ---
+                    
+                    // Native JS Regex Validation (more robust)
+                    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(sanitized)) return 'Please enter a valid email address format (e.g., user@domain.com)';
                     if (!/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(sanitized)) {
                         return 'Please enter a valid email address';
                     }
@@ -49,13 +84,30 @@ class TerminalForm {
             {
                 question: 'Please enter your message:',
                 field: 'message',
-                validate: (value) => {
-                    // Sanitize and validate message
+                validate: (value, inputElement) => {
+                    // Native JS Sanitization & Validation
                     const sanitized = this.sanitizeInput(value);
                     if (sanitized !== value) return 'Message contains invalid characters';
-                    if (sanitized.length < 10) return 'Message must be at least 10 characters long';
-                    if (sanitized.length > 1000) return 'Message must be less than 1000 characters';
                     if (this.containsSuspiciousPatterns(sanitized)) return 'Message contains suspicious content';
+
+                    // --- jQuery Validation --- 
+                    const $input = $(inputElement); // Use jQuery on the input element
+                    const trimmedValue = $input.val().trim();
+
+                    // Wajib diisi (Required)
+                    if (trimmedValue.length === 0) {
+                        return 'Message is required';
+                    }
+                    // Minimal length
+                    if (trimmedValue.length < 10) { 
+                        return 'Message must be at least 10 characters long';
+                    }
+                    // Maksimal karakter (Max length)
+                    if ($input.val().length > 1000) { 
+                        return 'Message must be less than 1000 characters';
+                    }
+                     // --- End jQuery Validation ---
+                    
                     return true;
                 }
             }
@@ -177,6 +229,17 @@ class TerminalForm {
     addInputLine() {
         const inputGroup = document.createElement('div');
         inputGroup.className = 'terminal__input-group';
+        // Determine input type based on current step
+        const currentField = this.steps[this.currentStep]?.field;
+        let inputType = 'text';
+        if (currentField === 'email') {
+            inputType = 'email';
+        } else if (currentField === 'message') {
+            // For message, we might want a textarea visually, but handle it as input here
+            // Or keep it as input for the terminal style
+            inputType = 'text'; // Keep as text for terminal style consistency
+        }
+        
         inputGroup.innerHTML = `
             <span class="terminal__prompt">
                 <span class="prompt__user">visitor</span>
@@ -184,8 +247,8 @@ class TerminalForm {
                 <span class="prompt__host">portfolio</span>
                 <span class="prompt__symbol">~$</span>
             </span>
-            <input type="text" class="terminal__input" autocomplete="off">
-        `;
+            <input type="${inputType}" class="terminal__input" autocomplete="off" name="${currentField}" id="input-${currentField}"> 
+        `; // Added name and id to input
         this.terminal.appendChild(inputGroup);
         
         const input = inputGroup.querySelector('.terminal__input');
@@ -199,10 +262,13 @@ class TerminalForm {
         // Add input effects
         input.addEventListener('keypress', (e) => {
             if (e.key === 'Enter') {
+                // Prevent Enter from submitting if it's the message field (allow new lines conceptually)
+                // However, in this terminal style, Enter likely signifies submission always.
                 e.preventDefault();
                 const value = input.value;
                 input.disabled = true;
-                this.handleInput(value);
+                // Pass the input element itself to handleInput for jQuery usage
+                this.handleInput(value, input); 
             }
         });
 
@@ -218,17 +284,20 @@ class TerminalForm {
         this.scrollToBottom();
     }
 
-    async handleInput(value) {
+    async handleInput(value, inputElement) {
         // Check rate limiting first
         const rateLimitMessage = this.isRateLimited();
         if (rateLimitMessage) {
             await this.addLine(`Error: ${rateLimitMessage}`, 'terminal__response error');
+            // Re-enable the specific input that failed rate limit? Or just add a new one?
+            // For simplicity, let's just allow a new input line after a delay.
             setTimeout(() => this.addInputLine(), 1000);
             return;
         }
 
         const step = this.steps[this.currentStep];
-        const validation = step.validate(value);
+        // Pass the input element to the validate function
+        const validation = step.validate(value, inputElement);
 
         if (validation === true) {
             this.attempts = 0; // Reset attempts on successful input
