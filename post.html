@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Judul akan diisi oleh JS -->
+    <title>Detail Postingan - FebnawanFR</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <!-- RemixIcon -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <!-- Prism CSS (Tema Okaidia) -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-okaidia.min.css" rel="stylesheet" />
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/blog.css">
+    <!-- Favicon (Contoh) -->
+    <!-- <link rel="icon" href="assets/favicon.ico"> -->
+</head>
+<body>
+
+    <!-- Navbar (Sama seperti blog.html) -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top" style="background-color: var(--surface-color);">
+        <div class="container">
+            <a class="navbar-brand nav__logo" href="index.html">
+                 <span class="nav__logo-bracket" style="color: var(--primary-color);">&lt;</span>
+                 <span class="nav__logo-text" style="color: var(--text-primary);">FFR</span>
+                 <span class="nav__logo-bracket" style="color: var(--primary-color);">/&gt;</span>
+                 <span style="color: var(--text-secondary); margin-left: 0.5rem; font-weight: 400;">Blog</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Portfolio</a>
+                    </li>
+                    <li class="nav-item">
+                        <!-- Tandai Blog sebagai aktif jika kita datang dari blog -->
+                        <a class="nav-link" href="blog.html">Blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="articles.html">Artikel</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main class="container my-5 post-detail-container">
+        <div class="row justify-content-center">
+            <div class="col-lg-9">
+                <!-- Tombol Kembali -->
+                <a href="blog.html" class="btn btn-outline-primary mb-4">
+                    <i class="ri-arrow-left-line"></i> Kembali ke Blog
+                </a>
+
+                <!-- Placeholder Konten Postingan -->
+                <article id="post-content-area">
+                    <!-- Judul -->
+                    <h1 class="post-title mb-3">Memuat Judul...</h1>
+                    <!-- Meta Info (Tanggal, Kategori) -->
+                    <div class="post-meta mb-4">
+                        <span class="post-date me-3"><i class="ri-calendar-line"></i> Memuat Tanggal...</span>
+                        <span class="post-category"><i class="ri-price-tag-3-line"></i> Memuat Kategori...</span>
+                    </div>
+                    <!-- Gambar Utama (jika ada) -->
+                    <div class="post-image-container mb-4">
+                        <!-- Gambar akan dimasukkan di sini oleh JS -->
+                    </div>
+                    <!-- Isi Konten -->
+                    <div class="post-body">
+                        <p>Memuat konten...</p>
+                    </div>
+                </article>
+
+                <!-- Placeholder jika postingan tidak ditemukan -->
+                <div id="post-not-found" class="alert alert-danger d-none" role="alert">
+                    Postingan tidak ditemukan atau tidak valid.
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer (Sama seperti blog.html) -->
+    <footer class="footer mt-5 py-5">
+        <!-- Konten footer sama persis seperti di blog.html -->
+        <div class="container">
+             <div class="row gy-4">
+                <!-- Brand & Social -->
+                <div class="col-lg-4 col-md-12 text-center text-lg-start">
+                     <a class="navbar-brand nav__logo d-inline-block mb-3" href="index.html">
+                         <span class="nav__logo-bracket" style="color: var(--primary-color);">&lt;</span>
+                         <span class="nav__logo-text" style="color: var(--text-primary);">FFR</span>
+                         <span class="nav__logo-bracket" style="color: var(--primary-color);">/&gt;</span>
+                    </a>
+                    <p class="footer__description">Berbagi pemikiran dan tutorial seputar web development dan teknologi.</p>
+                    <div class="footer__social mt-3">
+                        <a href="https://github.com/feb027" target="_blank" class="social__link" data-tooltip="GitHub">
+                            <i class="ri-github-line"></i>
+                        </a>
+                        <a href="https://linkedin.com/in/febnawan-fr" target="_blank" class="social__link" data-tooltip="LinkedIn">
+                            <i class="ri-linkedin-line"></i>
+                        </a>
+                        <a href="https://instagram.com/feb07_" target="_blank" class="social__link" data-tooltip="Instagram">
+                            <i class="ri-instagram-line"></i>
+                        </a>
+                    </div>
+                </div>
+                 <!-- Quick Links -->
+                <div class="col-lg-2 col-6">
+                    <h5 class="footer__title mb-3">Navigasi</h5>
+                    <ul class="footer__list">
+                        <li><a href="index.html" class="footer__link"><i class="ri-arrow-right-s-line"></i>Portfolio</a></li>
+                        <li><a href="blog.html" class="footer__link"><i class="ri-arrow-right-s-line"></i>Blog</a></li>
+                        <li><a href="articles.html" class="footer__link"><i class="ri-arrow-right-s-line"></i>Artikel</a></li>
+                    </ul>
+                </div>
+                 <!-- Resources (Contoh) -->
+                 <div class="col-lg-2 col-6">
+                    <h5 class="footer__title mb-3">Resources</h5>
+                    <ul class="footer__list">
+                        <li><a href="privacy-policy.html" class="footer__link"><i class="ri-shield-keyhole-line"></i>Privacy</a></li>
+                        <li><a href="terms-of-use.html" class="footer__link"><i class="ri-file-text-line"></i>Terms</a></li>
+                        <li><a href="certificates.html" class="footer__link"><i class="ri-medal-line"></i>Certs</a></li>
+                    </ul>
+                </div>
+                 <!-- Placeholder Column -->
+                 <div class="col-lg-4 col-md-12">
+                     <h5 class="footer__title mb-3">Kontak</h5>
+                     <ul class="footer__list footer__info-list">
+                         <li class="footer__info">
+                             <i class="ri-mail-line"></i>
+                             <a href="mailto:febnawanrochman2@gmail.com">febnawanrochman2@...</a>
+                         </li>
+                          <li class="footer__info">
+                             <i class="ri-map-pin-line"></i>
+                             <span>Tasikmalaya, Indonesia</span>
+                         </li>
+                     </ul>
+                </div>
+            </div>
+            <!-- Divider -->
+             <div class="footer__divider my-4">
+                <div class="divider__line"></div>
+            </div>
+            <!-- Bottom -->
+             <div class="footer__bottom text-center">
+                <p class="footer__copy">
+                    <i class="ri-copyright-line"></i>
+                    <span id="copyright-year">2024</span> <!-- Tahun akan diisi JS -->
+                    <a href="index.html" style="color: var(--primary-color);">Febnawan Fatur Rochman</a>.
+                    All rights reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <!-- Prism JS Core -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+    <!-- Prism JS Autoloader (memuat bahasa sesuai kebutuhan) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+    <!-- Post Detail Logic -->
+    <script src="js/post-detail.js" type="module"></script>
+    <!-- Footer JS (untuk copyright year) -->
+     <script>
+        const yearSpan = document.getElementById('copyright-year');
+        if (yearSpan) {
+            yearSpan.textContent = new Date().getFullYear();
+        }
+    </script>
+</body>
+</html> 

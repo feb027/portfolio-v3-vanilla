@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artikel Detail - FebnawanFR</title> <!-- Judul akan diisi JS -->
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- RemixIcon -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <!-- Prism CSS (jika digunakan) -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-okaidia.min.css" rel="stylesheet" />
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/blog.css"> <!-- Reuse blog.css for now -->
+    <!-- Favicon -->
+    <!-- <link rel="icon" href="assets/favicon.ico"> -->
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top" style="background-color: var(--surface-color);">
+        <div class="container">
+            <a class="navbar-brand nav__logo" href="index.html">
+                 <span class="nav__logo-bracket">&lt;</span><span class="nav__logo-text">FFR</span><span class="nav__logo-bracket">/&gt;</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Portfolio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+                    <li class="nav-item"><a class="nav-link" href="articles.html">Artikel</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main class="container my-5 article-detail-container">
+        <div class="row justify-content-center">
+            <div class="col-lg-9" id="article-main-column">
+
+                <!-- Tombol Kembali -->
+                <a href="articles.html" class="btn btn-outline-primary mb-4 d-inline-flex align-items-center"><i class="ri-arrow-left-s-line me-1"></i> Kembali ke Daftar Artikel</a>
+
+                <!-- Konten Artikel -->
+                <article id="article-content-area" class="mb-5">
+                    <!-- Judul -->
+                    <h1 class="article-title mb-3">Memuat Artikel...</h1>
+                    <!-- Meta Info -->
+                    <div class="article-meta mb-4">
+                        <span class="article-date me-3"><i class="ri-calendar-event-line"></i> ...</span>
+                        <span class="article-category me-3"><i class="ri-price-tag-3-line"></i> ...</span>
+                        <span class="article-author"><i class="ri-user-line"></i> ...</span>
+                    </div>
+                    <!-- Gambar Utama -->
+                    <div class="article-image-container mb-4">
+                        <!-- Placeholder Gambar -->
+                    </div>
+                    <!-- Isi Konten -->
+                    <div class="article-body">
+                        <p>Memuat konten...</p>
+                    </div>
+                </article>
+
+                <!-- Tombol Share -->
+                <section class="article-extras share-section mb-5">
+                    <h5 class="extras-title">Bagikan Artikel Ini:</h5>
+                    <div class="share-buttons">
+                        <a href="#" class="btn share-btn twitter" target="_blank" title="Bagikan ke Twitter"><i class="ri-twitter-fill"></i></a>
+                        <a href="#" class="btn share-btn facebook" target="_blank" title="Bagikan ke Facebook"><i class="ri-facebook-fill"></i></a>
+                        <a href="#" class="btn share-btn linkedin" target="_blank" title="Bagikan ke LinkedIn"><i class="ri-linkedin-fill"></i></a>
+                        <button class="btn share-btn copy-link" title="Salin Link"><i class="ri-link"></i></button>
+                    </div>
+                </section>
+
+                <!-- Navigasi Prev/Next -->
+                <nav class="article-navigation mb-5">
+                    <div class="row g-3">
+                        <div class="col-6 text-start">
+                            <a href="#" class="btn nav-btn prev disabled" id="prev-article-btn">
+                                <i class="ri-arrow-left-s-line"></i>
+                                <span>Artikel Sebelumnya</span>
+                            </a>
+                        </div>
+                        <div class="col-6 text-end">
+                            <a href="#" class="btn nav-btn next disabled" id="next-article-btn">
+                                <span>Artikel Selanjutnya</span>
+                                <i class="ri-arrow-right-s-line"></i>
+                            </a>
+                        </div>
+                    </div>
+                </nav>
+
+                <!-- Rekomendasi Artikel -->
+                <section class="article-extras recommended-section mb-5">
+                    <h5 class="extras-title">Anda Mungkin Juga Suka:</h5>
+                    <div class="row g-3" id="recommended-articles-list">
+                        <!-- Rekomendasi akan dirender JS -->
+                        <p class="text-secondary">Memuat rekomendasi...</p>
+                    </div>
+                </section>
+
+                <!-- Komentar Pengunjung -->
+                <section class="article-extras comments-section mb-5">
+                    <h5 class="extras-title">Komentar Pengunjung</h5>
+                    <div class="comments-list mb-4" id="comments-list-display">
+                        <!-- Placeholder Komentar -->
+                        <div class="comment-item">
+                            <p class="text-secondary">Belum ada komentar.</p>
+                        </div>
+                        <!-- <div class="comment-item">
+                            <p><strong>Nama Pengguna:</strong> Komentar contoh...</p>
+                            <small class="text-muted">1 jam lalu</small>
+                        </div> -->
+                    </div>
+
+                    <!-- Kolom Komentar -->
+                    <div class="comment-form">
+                        <h6 class="mb-3">Tinggalkan Komentar:</h6>
+                        <form id="comment-form">
+                            <div class="mb-3">
+                                <label for="comment-name" class="form-label">Nama:</label>
+                                <input type="text" class="form-control" id="comment-name" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="comment-text" class="form-label">Komentar:</label>
+                                <textarea class="form-control" id="comment-text" rows="4" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Kirim Komentar</button>
+                        </form>
+                    </div>
+                </section>
+
+                <!-- Placeholder jika artikel tidak ditemukan -->
+                <div id="article-not-found" class="alert alert-danger d-none" role="alert">
+                    Artikel tidak ditemukan atau tidak valid.
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer mt-5 py-5">
+        <!-- Konten footer sama persis seperti di blog.html -->
+        <div class="container">
+             <div class="row gy-4">
+                <div class="col-lg-4 col-md-12 text-center text-lg-start">
+                     <a class="navbar-brand nav__logo d-inline-block mb-3" href="index.html"><span class="nav__logo-bracket">&lt;</span><span class="nav__logo-text">FFR</span><span class="nav__logo-bracket">/&gt;</span></a>
+                    <p class="footer__description">Berbagi pemikiran dan tutorial seputar web development dan teknologi.</p>
+                    <div class="footer__social mt-3">
+                        <a href="https://github.com/feb027" target="_blank" class="social__link" data-tooltip="GitHub"><i class="ri-github-line"></i></a>
+                        <a href="https://linkedin.com/in/febnawan-fr" target="_blank" class="social__link" data-tooltip="LinkedIn"><i class="ri-linkedin-line"></i></a>
+                        <a href="https://instagram.com/feb07_" target="_blank" class="social__link" data-tooltip="Instagram"><i class="ri-instagram-line"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-6"><h5 class="footer__title mb-3">Navigasi</h5><ul class="footer__list"><li><a href="index.html" class="footer__link"><i class="ri-arrow-right-s-line"></i>Portfolio</a></li><li><a href="blog.html" class="footer__link"><i class="ri-arrow-right-s-line"></i>Blog</a></li><li><a href="articles.html" class="footer__link"><i class="ri-arrow-right-s-line"></i>Artikel</a></li></ul></div>
+                 <div class="col-lg-2 col-6"><h5 class="footer__title mb-3">Resources</h5><ul class="footer__list"><li><a href="privacy-policy.html" class="footer__link"><i class="ri-shield-keyhole-line"></i>Privacy</a></li><li><a href="terms-of-use.html" class="footer__link"><i class="ri-file-text-line"></i>Terms</a></li><li><a href="certificates.html" class="footer__link"><i class="ri-medal-line"></i>Certs</a></li></ul></div>
+                 <div class="col-lg-4 col-md-12"><h5 class="footer__title mb-3">Kontak</h5><ul class="footer__list footer__info-list"><li class="footer__info"><i class="ri-mail-line"></i><a href="mailto:febnawanrochman2@gmail.com">febnawanrochman2@...</a></li><li class="footer__info"><i class="ri-map-pin-line"></i><span>Tasikmalaya, Indonesia</span></li></ul></div>
+            </div>
+             <div class="footer__divider my-4"><div class="divider__line"></div></div>
+             <div class="footer__bottom text-center"><p class="footer__copy"><i class="ri-copyright-line"></i> <span id="copyright-year">2024</span> <a href="index.html" style="color: var(--primary-color);">Febnawan Fatur Rochman</a>. All rights reserved.</p></div>
+        </div>
+    </footer>
+
+    <!-- JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+    <!-- Article Detail Logic -->
+    <script src="js/article-detail.js" type="module"></script>
+    <!-- Footer JS -->
+     <script>
+        const yearSpan = document.getElementById('copyright-year');
+        if (yearSpan) yearSpan.textContent = new Date().getFullYear();
+        // Add logic for copy link button
+        const copyBtn = document.querySelector('.copy-link');
+        if(copyBtn) {
+            copyBtn.addEventListener('click', () => {
+                navigator.clipboard.writeText(window.location.href).then(() => {
+                    copyBtn.title = 'Link disalin!';
+                    copyBtn.innerHTML = '<i class="ri-check-line"></i>'; // Ganti ikon
+                    setTimeout(() => {
+                        copyBtn.title = 'Salin Link';
+                        copyBtn.innerHTML = '<i class="ri-link"></i>'; // Kembalikan ikon
+                    }, 2000);
+                }).catch(err => {
+                    console.error('Gagal menyalin link: ', err);
+                    alert('Gagal menyalin link.');
+                });
+            });
+        }
+        // Placeholder for comment form submission
+        const commentForm = document.getElementById('comment-form');
+        if(commentForm) {
+            commentForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                alert('Fitur komentar belum diimplementasikan.');
+                // Di sini Anda akan menambahkan logika untuk mengirim komentar
+                // dan menampilkan komentar baru di #comments-list-display
+                commentForm.reset();
+            });
+        }
+    </script>
+</body>
+</html> 

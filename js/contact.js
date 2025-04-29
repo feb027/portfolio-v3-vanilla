@@ -34,11 +34,11 @@ class TerminalForm {
                     if (trimmedValue.length === 0) {
                         return 'Name is required';
                     }
-                    // Minimal length (can be combined with required)
+                    // Minimal length 
                     if (trimmedValue.length < 2) { 
                         return 'Name must be at least 2 characters long';
                     }
-                    // Maksimal karakter (Max length)
+                    // Maksimal karakter
                     if ($input.val().length > 50) { 
                         return 'Name must be less than 50 characters';
                     }
