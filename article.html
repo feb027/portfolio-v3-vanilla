@@ -169,7 +169,7 @@
     <!-- Article Detail Logic -->
     <script src="js/article-detail.js" type="module"></script>
     <!-- Footer JS -->
-     <script>
+    <script>
         const yearSpan = document.getElementById('copyright-year');
         if (yearSpan) yearSpan.textContent = new Date().getFullYear();
         // Add logic for copy link button
@@ -187,17 +187,6 @@
                     console.error('Gagal menyalin link: ', err);
                     alert('Gagal menyalin link.');
                 });
-            });
-        }
-        // Placeholder for comment form submission
-        const commentForm = document.getElementById('comment-form');
-        if(commentForm) {
-            commentForm.addEventListener('submit', (e) => {
-                e.preventDefault();
-                alert('Fitur komentar belum diimplementasikan.');
-                // Di sini Anda akan menambahkan logika untuk mengirim komentar
-                // dan menampilkan komentar baru di #comments-list-display
-                commentForm.reset();
             });
         }
     </script>

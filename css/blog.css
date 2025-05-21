@@ -1539,4 +1539,66 @@ h1, h2, h3, h4, h5, h6 {
     box-shadow: 0 4px 10px rgba(0, 153, 255, 0.1);
 }
 
-/* ... Footer Styling ... */ 
+/* ... Footer Styling ... */
+
+/* Comment Section Styles */
+.comments-section {
+    background-color: var(--surface-color);
+    padding: 2rem;
+    border-radius: 8px;
+    margin-top: 2rem;
+}
+
+.comment-form {
+    margin-bottom: 2rem;
+}
+
+.comment-form .form-label {
+    color: var(--text-color);
+    font-weight: 500;
+}
+
+.comment-form .form-control {
+    background-color: var(--background-color);
+    border: 1px solid var(--border-color);
+    color: var(--text-color);
+}
+
+.comment-form .form-control:focus {
+    background-color: var(--background-color);
+    border-color: var(--primary-color);
+    color: var(--text-color);
+    box-shadow: 0 0 0 0.2rem rgba(var(--primary-rgb), 0.25);
+}
+
+.comment-item {
+    background-color: var(--background-color);
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    border: 1px solid var(--border-color);
+}
+
+.comment-item p {
+    margin-bottom: 0.5rem;
+    color: var(--text-color);
+}
+
+.comment-item small {
+    color: var(--text-muted);
+}
+
+.comment-item strong {
+    color: var(--primary-color);
+}
+
+/* Dark mode adjustments */
+@media (prefers-color-scheme: dark) {
+    .comment-form .form-control {
+        background-color: var(--surface-color);
+    }
+    
+    .comment-item {
+        background-color: var(--surface-color);
+    }
+} 

@@ -136,4 +136,162 @@ function renderArticleDetails() {
 
 }
 
-document.addEventListener('DOMContentLoaded', renderArticleDetails); 
+document.addEventListener('DOMContentLoaded', renderArticleDetails);
+
+// Get article ID from URL
+const urlParams = new URLSearchParams(window.location.search);
+const articleId = urlParams.get('id');
+
+// DOM Elements
+const commentForm = document.getElementById('comment-form');
+const commentsList = document.getElementById('comments-list-display');
+
+// Load comments when page loads
+document.addEventListener('DOMContentLoaded', () => {
+    if (articleId) {
+        loadComments();
+    }
+});
+
+// Handle comment form submission
+if (commentForm) {
+    commentForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        const name = document.getElementById('comment-name').value.trim();
+        const comment = document.getElementById('comment-text').value.trim();
+
+        if (!name || !comment) {
+            alert('Mohon isi semua field yang diperlukan.');
+            return;
+        }
+
+        try {
+            const formData = new URLSearchParams();
+            formData.append('article_id', articleId);
+            formData.append('name', name);
+            formData.append('comment', comment);
+
+            const response = await fetch('php/submit_comment.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: formData
+            });
+
+            const data = await response.json();
+
+            if (data.success) {
+                // Add new comment to the list
+                addCommentToList(data.comment);
+                // Reset form
+                commentForm.reset();
+                // Show success message
+                alert(data.message);
+            } else {
+                alert(data.message || 'Terjadi kesalahan saat mengirim komentar.');
+            }
+        } catch (error) {
+            console.error('Error:', error);
+            alert('Terjadi kesalahan saat mengirim komentar.');
+        }
+    });
+}
+
+// Load comments from server
+async function loadComments() {
+    try {
+        const response = await fetch(`php/get_comments.php?article_id=${articleId}`);
+        const data = await response.json();
+
+        if (data.success) {
+            displayComments(data.comments);
+        } else {
+            console.error('Error loading comments:', data.message);
+        }
+    } catch (error) {
+        console.error('Error:', error);
+    }
+}
+
+// Display comments in the list
+function displayComments(comments) {
+    if (!commentsList) return;
+
+    if (comments.length === 0) {
+        commentsList.innerHTML = '<div class="comment-item"><p class="text-secondary">Belum ada komentar.</p></div>';
+        return;
+    }
+
+    commentsList.innerHTML = comments.map(comment => `
+        <div class="comment-item">
+            <p><strong>${escapeHtml(comment.name)}:</strong> ${escapeHtml(comment.comment_text)}</p>
+            <small class="text-muted">${formatDate(comment.created_at)}</small>
+        </div>
+    `).join('');
+}
+
+// Add a single comment to the list
+function addCommentToList(comment) {
+    if (!commentsList) return;
+
+    // Remove "no comments" message if it exists
+    const noCommentsMsg = commentsList.querySelector('.text-secondary');
+    if (noCommentsMsg) {
+        noCommentsMsg.parentElement.remove();
+    }
+
+    // Create new comment element
+    const commentElement = document.createElement('div');
+    commentElement.className = 'comment-item';
+    commentElement.innerHTML = `
+        <p><strong>${escapeHtml(comment.name)}:</strong> ${escapeHtml(comment.comment_text)}</p>
+        <small class="text-muted">${formatDate(comment.created_at)}</small>
+    `;
+
+    // Add to the beginning of the list
+    commentsList.insertBefore(commentElement, commentsList.firstChild);
+}
+
+// Helper function to escape HTML
+function escapeHtml(unsafe) {
+    return unsafe
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+}
+
+// Helper function to format date
+function formatDate(dateString) {
+    const date = new Date(dateString);
+    const now = new Date();
+    const diff = now - date;
+
+    // Less than 24 hours
+    if (diff < 24 * 60 * 60 * 1000) {
+        const hours = Math.floor(diff / (60 * 60 * 1000));
+        if (hours === 0) {
+            const minutes = Math.floor(diff / (60 * 1000));
+            return `${minutes} menit yang lalu`;
+        }
+        return `${hours} jam yang lalu`;
+    }
+
+    // Less than 7 days
+    if (diff < 7 * 24 * 60 * 60 * 1000) {
+        const days = Math.floor(diff / (24 * 60 * 60 * 1000));
+        return `${days} hari yang lalu`;
+    }
+
+    // Otherwise show full date
+    return date.toLocaleDateString('id-ID', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit'
+    });
+} 

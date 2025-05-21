@@ -289,14 +289,55 @@ class TerminalForm {
         const rateLimitMessage = this.isRateLimited();
         if (rateLimitMessage) {
             await this.addLine(`Error: ${rateLimitMessage}`, 'terminal__response error');
-            // Re-enable the specific input that failed rate limit? Or just add a new one?
-            // For simplicity, let's just allow a new input line after a delay.
             setTimeout(() => this.addInputLine(), 1000);
             return;
         }
 
+        // Check if we're in the confirmation step (after all regular steps)
+        if (this.currentStep >= this.steps.length) {
+            const confirmation = value.toLowerCase();
+            if (confirmation === 'y' || confirmation === 'n') {
+                if (confirmation === 'y') {
+                    // Send data to PHP script
+                    try {
+                        this.addLine('\nSending message...', 'response');
+                        
+                        const formData = new FormData();
+                        formData.append('name', this.formData.name);
+                        formData.append('email', this.formData.email);
+                        formData.append('message', this.formData.message);
+                        
+                        const response = await fetch('php/submit_contact.php', {
+                            method: 'POST',
+                            body: formData
+                        });
+                        
+                        const result = await response.json();
+                        
+                        if (result.success) {
+                            this.addLine(result.message, 'success');
+                        } else {
+                            this.addLine(result.message, 'error');
+                        }
+                    } catch (error) {
+                        this.addLine('Error sending message. Please try again later.', 'error');
+                        console.error('Error:', error);
+                    }
+                } else {
+                    this.addLine('\nMessage cancelled.', 'response');
+                }
+                // Reset form after sending or cancellation
+                setTimeout(() => this.resetForm(), 2000);
+                return;
+            }
+            // If input is not y/n, show error and ask again
+            this.addLine('Please enter y or n', 'error');
+            this.addInputLine();
+            return;
+        }
+
+        // Regular step validation
         const step = this.steps[this.currentStep];
-        // Pass the input element to the validate function
         const validation = step.validate(value, inputElement);
 
         if (validation === true) {
@@ -306,9 +347,14 @@ class TerminalForm {
             
             await this.addLine(`✓ ${step.field}: ${value}`, 'response success');
             
-            setTimeout(() => {
-                this.askQuestion();
-            }, 500);
+            if (this.currentStep < this.steps.length) {
+                setTimeout(() => {
+                    this.askQuestion();
+                }, 500);
+            } else {
+                // Show summary and ask for confirmation
+                this.showSummary();
+            }
         } else {
             this.attempts++;
             
@@ -333,50 +379,15 @@ class TerminalForm {
     }
 
     async showSummary() {
-        // Update last submission time
-        this.lastSubmissionTime = Date.now();
-
-        const summary = [
-            { text: '----------------------------------------', class: 'response' },
-            { text: 'Message Summary:', class: 'response' },
-            { text: `Name: ${this.formData.name}`, class: 'response' },
-            { text: `Email: ${this.formData.email}`, class: 'response' },
-            { text: `Message: ${this.formData.message}`, class: 'response' },
-            { text: '----------------------------------------', class: 'response' },
-            { text: 'Processing your message...', class: 'response' }
-        ];
-
-        for (const line of summary) {
-            await this.addLine(line.text, line.class);
-            await new Promise(resolve => setTimeout(resolve, 300));
-        }
-
-        // Add CSRF protection token if you're using a backend
-        const csrfToken = document.querySelector('meta[name="csrf-token"]')?.content;
+        // Show the collected data
+        this.addLine('\nSummary of your message:', 'response');
+        this.addLine(`Name: ${this.formData.name}`, 'response');
+        this.addLine(`Email: ${this.formData.email}`, 'response');
+        this.addLine(`Message: ${this.formData.message}`, 'response');
         
-        try {
-            // Here you would typically send the data to your server
-            // const response = await fetch('/api/contact', {
-            //     method: 'POST',
-            //     headers: {
-            //         'Content-Type': 'application/json',
-            //         'X-CSRF-Token': csrfToken
-            //     },
-            //     body: JSON.stringify(this.formData)
-            // });
-
-            await this.addLine('Message sent successfully! ✨', 'response success');
-            await this.addLine('Thank you for your message. I will get back to you soon.', 'response');
-            
-            setTimeout(() => {
-                this.resetForm();
-            }, 3000);
-        } catch (error) {
-            await this.addLine('Error sending message. Please try again later.', 'terminal__response error');
-            setTimeout(() => {
-                this.resetForm();
-            }, 3000);
-        }
+        // Add confirmation prompt
+        this.addLine('\nDo you want to send this message? (y/n)', 'response');
+        this.addInputLine();
     }
 
     resetForm() {
